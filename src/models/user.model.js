@@ -1,4 +1,3 @@
-import mongoose,{ Schema } from "mongoose";
-const userSchema= new Schema({
-    
-})
+import mongoose ,{Schema} from "mongoose";
+
+const userSchema= new Schema
