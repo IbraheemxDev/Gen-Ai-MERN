@@ -4,7 +4,7 @@ import { loginUserController, registerUserController } from "../controllers/auth
 const authRouter= Router()
 
 authRouter.route("/register").post(registerUserController)
-authRouter.route("/api/login").post(loginUserController)
+authRouter.route("/login").post(loginUserController)
 
 
 
