@@ -5,10 +5,7 @@ const authRouter= Router()
 
 authRouter.route("/register").post(registerUserController)
 authRouter.route("/login").post(loginUserController)
-authRouter.route("/login").post(loginUserController)
-authRouter.route("/login").post(loginUserController)
-authRouter.route("/login").post(loginUserController)
-authRouter.route("/login").post(loginUserController)
+
 
 
 
