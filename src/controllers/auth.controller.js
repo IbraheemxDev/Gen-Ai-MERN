@@ -87,8 +87,21 @@ async function logoutUserController(req,res) {
     })
 }
 
+
+async function getMeController(req,res) {
+        const user= await User.findById(req.user.id)
+         res.status(200).json({
+            mesage:"User fetched Successfully",
+            user:{
+                id:user._id,
+                username:user.username,
+                email:user.email
+            }
+        }) 
+}
 export{
     registerUserController,
     loginUserController,
-    logoutUserController
+    logoutUserController,
+    getMeController
 }
