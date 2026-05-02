@@ -1,5 +1,6 @@
 import express from "express"
 import authRouter from "./routes/auth.routes.js"  // ✅ Upar
+import interviewRouter from "./routes/interview.routes.js"  // ✅ Upar
 import cookieParser from "cookie-parser"  // ✅ Upar
 import cors from "cors"  // ✅ Upar
 const app = express()
@@ -14,5 +15,6 @@ app.use(cors({
 }))
 
 app.use("/api/auth", authRouter)  // ✅ Route bhi fix kiya
+app.use("/api/interview", interviewRouter)  // ✅ New route for interview endpoints
 
 export { app }
