@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose';
+import mongoose,{ Schema } from 'mongoose';
 
 /**
  * Interview Report Schema
@@ -76,7 +76,7 @@ const skillGapSchema = new Schema({
    
 },{_id: false});
 
-cons t preparationPlanSchema = new Schema({
+const preparationPlanSchema = new Schema({
     day: {
         type: Number,
         required: [true, 'Day is required'],
@@ -113,8 +113,8 @@ const interviewReportSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: [true, 'User reference is required'],
-    },
+    }
     
-},{timestamps: true});
+}},{timestamps: true});
 
 export const InterviewReportModel = mongoose.model('InterviewReport', interviewReportSchema);

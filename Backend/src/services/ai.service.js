@@ -2,11 +2,14 @@ import { GoogleGenAI } from "@google/genai";
 import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
 // The client gets the API key from the environment variable `GEMINI_API_KEY`.
-const ai = new GoogleGenAI({
-    apiKey: process.env.GEMINI_API_KEY,
-});
+// const ai = new GoogleGenAI({
+//     apiKey: process.env.GEMINI_API_KEY,
+// });
+
 
 const interviewReportSchema = z.object({
+   
+  
     matchscore: z.number().describe("A score between 0 and 100 that indicates how well the candidate's profile matches the job description, based on the analysis of the resume, self-description, and job description."),
     technicalQuestions: z.array(z.object({
         question: z.string().describe("The technical question can be asked in the interview"),
@@ -35,6 +38,13 @@ const interviewReportSchema = z.object({
 
 
 async function generateInterviewReport({ resume, selfDescription, jobDescription }) {
+     if (!process.env.GEMINI_API_KEY) {
+        throw new Error("❌ GEMINI_API_KEY missing");
+    }
+
+    const ai = new GoogleGenAI({
+        apiKey: process.env.GEMINI_API_KEY,
+    });
     const promt = `Generate an interview report for a candidate based on the following details:
     Resume: ${resume}
     Self Description: ${selfDescription}

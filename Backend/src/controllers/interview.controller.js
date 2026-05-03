@@ -1,6 +1,6 @@
-import pdfParse from 'pdf-parse';
+import * as pdfParse from 'pdf-parse';
 import { generateInterviewReport } from '../services/ai.service.js';
-import InterviewReportModel from '../models/interviewReport.model.js';
+import {InterviewReportModel} from '../models/interviewReport.model.js';
 
 async   function genrateInterviewReportController(req,res) {
     const resumeContent=  pdfParse(req.file.buffer);
